@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Josefin+Sans:wght@300;400;600&family=Karla:wght@400;700&family=Kumbh+Sans:wght@700&family=League+Spartan:wght@400;700&family=Lexend+Deca:wght@400;700&family=Manrope:wght@500;700&family=Montserrat:wght@600&family=Open+Sans&family=Outfit:wght@100;300;400;600&family=Overpass:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    footer{
+      position: fixed;
+      bottom: 0;
+    }
+    body{
+      background-color: hsl(210, 46%, 95%);
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      width: 730px;
+      height: 280px;
+      box-shadow: 0 0 20px rgba(34, 33, 33, 0.583);
+      display: flex;
+      border-radius: 10px;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .img{
+      height: inherit;
+      border-radius: 10px 0 0 10px;
+      width: 42%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .img > img{
+      height: inherit;
+    }
+    .description{
+      width: 65%;
+      box-sizing: border-box;
+      margin: 0;
+      border-radius: 10px;
+      font-family: Manrope;
+      background-color: white;
+      padding: 20px 30px 20px 40px;
+    }
+    .description > h1{
+      font-size: 20px;
+      letter-spacing: 0.2px;
+    }
+    .description > p{
+      font-size: 14px;
+      letter-spacing: -0.3px;
+    }
+    .profile{
+      display: flex;
+      align-items: center;
+      height: 60px;
+    }
+    .img-profile > img{
+      height: 40px;
+      border-radius: 40px;
+    }
+    .info{
+      margin-left: 17px;
+    }
+    .info > h3{
+      margin: 0;
+      font-size: 13px;
+    }
+    .info > span{
+      font-size: 13px;
+      margin: 0;
+    }
+    .share{
+      margin-left: auto;
+      height: 30px;
+      width: 30px;
+      border-radius: 100px;
+      margin-right: 10px;
+      position: relative;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: hsl(210, 22%, 87%);
+    }
+    .icon-share{
+      border: none;
+      outline: none;
+      width: 12px;
+    }
+    .share-container{
+      position: absolute;
+      top: -85px;
+      left: -105px;
+      width: 245px;
+      height: 53px;
+      border-radius: 10px;
+      display: flex;
+      box-sizing: border-box;
+      padding-left: 30px;
+      align-items: center;
+      background-color: hsl(217, 19%, 35%);
+      color: hsl(212, 23%, 69%);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      opacity: 0.;
+      display: none;
+      transition: opacity 0.3s;
+    }
+    .share-container > img, p{
+      margin-right: 18px;
+    }
+    .triangle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: -10px;
+      left: 44%;
+
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid hsl(217, 19%, 35%);
+    }
+    @media screen and (max-width:730px) {
+      body{
+        /* background: url(./design/mobile-active-state.jpg) no-repeat center fixed; */
+      }
+      .container{
+        flex-direction: column;
+        width: 375px;
+        height: 578px;
+        /* transform: scale(0.87); */
+      }
+      .description{
+        padding-top: 25px;
+        padding-left: 35px;
+        padding-bottom: 0;
+      }
+      .description > h1{
+        letter-spacing: -0.5px;
+      }
+      .description > p{
+        letter-spacing: 0.6px;
+        line-height: 23px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      .profile{
+        margin-top: 32px;
+        margin-left: 5px;
+      }
+      .info{
+        margin-left: 20px;
+      }
+      .info > h3{
+        font-size: 15px;
+      }
+      .info > span{
+        font-size: 15px;
+      }
+      .img{
+        /* background-color: red; */
+        height: 235px;
+        width: inherit;
+      }
+      .img > img{
+        width: inherit;
+      }
+      .description{
+        width: inherit;
+      }
+      .share{
+        z-index: 2;
+      }
+      .share-container {
+        top: -15px;
+        padding-left: 50px;
+        border-radius: 0px 0px 10px 10px;
+        left: -305px;
+        width: 375px;
+        height: 60px;
+        z-index: -1;
+      }
+      .share-container > img{
+        width: 23px;
+      }
+      .share{
+        z-index: 0;
+      }
+      .triangle{
+        display: none;
+      }
+    }
+    *{
+      /* opacity: 0.8; */
+      /* outline: 1px solid red; */
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <div class="img">
+      <img src="./images/drawers.jpg" alt="Image Hero">
+    </div> 
+
+    <div class="description">
+      <h1>
+        Shift the overall look and feel by adding these wonderful
+        touches to furniture in your home
+      </h1>
+      <p>
+        Ever been in a room and felt like something was missing? Perhaps
+        it felt slightly bare and uninviting. I’ve got some simple tips
+        to help you make any room feel complete.
+      </p>
+      <div class="profile">
+        <div class="img-profile">
+          <img src="./images/avatar-michelle.jpg" alt="Avatar">
+        </div>
+        <div class="info">
+          <h3>Michelle Appleton</h3>
+          <span>28 Jun 2020</span>
+        </div>
+        <button class="share">
+          <img src="./images/icon-share.svg" alt="" class="icon-share">
+          <div class="share-container">
+            <div class="triangle"></div>
+            <p>Share</p>
+            <img src="./images/icon-facebook.svg" alt="">
+            <img src="./images/icon-twitter.svg" alt="">
+            <img src="./images/icon-pinterest.svg" alt="">
+          </div>
+        </button>
+      </div>
+    </div>
+
+  </main>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Farid Satria</a>.
+  </footer>
+  <script>
+    const shareButton = document.querySelector('.share');
+    const popUpShare = document.querySelector('.share-container');
+    const iconShare = document.querySelector('.icon-share');
+
+    popUpShare.addEventListener('mouseenter', function(){
+      popUpShare.style.display = 'flex';
+    });
+    shareButton.addEventListener('mouseenter', function() {
+      popUpShare.style.display = 'flex';
+      iconShare.style.filter = 'brightness(0) invert(1)';
+      shareButton.style.backgroundColor = 'hsl(212, 23%, 69%)';
+    });
+    popUpShare.addEventListener('mouseleave', function(){
+      setTimeout(() => {
+        popUpShare.style.display = 'none';
+        iconShare.style.filter = '';
+      shareButton.style.backgroundColor = '';
+      }, 1000);
+    });
+    shareButton.addEventListener('click', function(){
+      popUpShare.style.display = 'flex';
+    });
+
+  </script>
+</body>
+</html>
